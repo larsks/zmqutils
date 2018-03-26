@@ -33,4 +33,9 @@ def cli(input, bufsize, listen, loglevel, target):
         if not data:
             break
         sock.send(data)
+
+    LOG.info('closing sockets')
+    sock.close()
+    ctx.term()
+
     LOG.info('finished sending')
